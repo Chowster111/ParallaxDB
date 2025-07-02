@@ -1,13 +1,13 @@
 #include <iostream>
+#include <string>
 #include "storage/Table.hpp"
 #include "parser/Parser.hpp"
 
 using namespace parallaxdb;
 
 int main() {
-    std::cout << "Welcome to ParallaxDB!" << std::endl;
+    std::cout << "Welcome to ParallaxDB!\n";
 
-    // Step 1: Define table schema
     Table users(
         "users",
         {
@@ -17,17 +17,20 @@ int main() {
         }
     );
 
-    // Step 2: Insert sample data
     users.insertRow({{1, "Alice", 30}});
     users.insertRow({{2, "Bob", 25}});
     users.insertRow({{3, "Charlie", 35}});
+    users.insertRow({{4, "Diana", 40}});
 
-    // Step 3: Parse query (stub)
-    std::string query = "SELECT * FROM users;";
-    auto plan = Parser::parse(query, users);
+    while (true) {
+        std::cout << "\n> ";
+        std::string query;
+        std::getline(std::cin, query);
+        if (query == "exit") break;
 
-    // Step 4: Execute plan
-    plan->execute();
+        auto plan = Parser::parse(query, users);
+        plan->execute();
+    }
 
     return 0;
 }

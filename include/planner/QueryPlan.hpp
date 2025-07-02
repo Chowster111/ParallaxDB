@@ -22,6 +22,7 @@ public:
             // For now, just print
             for (const auto& val : row.values) {
                 std::cout << val << " ";
+
             }
             std::cout << std::endl;
         }

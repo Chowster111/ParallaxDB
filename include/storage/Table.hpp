@@ -7,7 +7,7 @@
 
 namespace parallaxdb {
 
-using Value = std::string;
+using Value = std::variant<int, double, std::string>;
 
 struct Row {
     std::vector<Value> values;
