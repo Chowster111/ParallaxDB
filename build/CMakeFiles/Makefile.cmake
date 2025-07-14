@@ -170,4 +170,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/AArch64TargetParserTableGen.dir/DependInfo.cmake"
   "CMakeFiles/RISCVTargetParserTableGen.dir/DependInfo.cmake"
   "CMakeFiles/ParallaxDB.dir/DependInfo.cmake"
+  "CMakeFiles/ParallaxDB_tests.dir/DependInfo.cmake"
   )

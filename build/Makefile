@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/arijitchow/Documents/ParallaxDB/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -221,6 +231,19 @@ ParallaxDB/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/build
 .PHONY : ParallaxDB/fast
 
+#=============================================================================
+# Target rules for targets named ParallaxDB_tests
+
+# Build rule for target.
+ParallaxDB_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ParallaxDB_tests
+.PHONY : ParallaxDB_tests
+
+# fast build rule for target.
+ParallaxDB_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/build
+.PHONY : ParallaxDB_tests/fast
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -245,6 +268,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+tests/test_basic.o: tests/test_basic.cpp.o
+.PHONY : tests/test_basic.o
+
+# target to build an object file
+tests/test_basic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.o
+.PHONY : tests/test_basic.cpp.o
+
+tests/test_basic.i: tests/test_basic.cpp.i
+.PHONY : tests/test_basic.i
+
+# target to preprocess a source file
+tests/test_basic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.i
+.PHONY : tests/test_basic.cpp.i
+
+tests/test_basic.s: tests/test_basic.cpp.s
+.PHONY : tests/test_basic.s
+
+# target to generate assembly for a file
+tests/test_basic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.s
+.PHONY : tests/test_basic.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -253,6 +300,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... AArch64TargetParserTableGen"
 	@echo "... ARMTargetParserTableGen"
 	@echo "... RISCVTargetParserTableGen"
@@ -261,9 +309,13 @@ help:
 	@echo "... omp_gen"
 	@echo "... vt_gen"
 	@echo "... ParallaxDB"
+	@echo "... ParallaxDB_tests"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... tests/test_basic.o"
+	@echo "... tests/test_basic.i"
+	@echo "... tests/test_basic.s"
 .PHONY : help
 
 
