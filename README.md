@@ -10,6 +10,7 @@ It supports basic `SELECT`, `JOIN`, and `WHERE` clauses, with a custom parser, c
 - LLVM-based JIT compilation for filter and arithmetic expressions
 - Multithreaded execution pipeline using `pthreads` or `std::thread`
 - Fully in-memory storage engine for fast prototyping
+- Deployable to connect to a production database.
 
 ## Project Structure
 
