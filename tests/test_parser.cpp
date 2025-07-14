@@ -61,6 +61,22 @@ void test_tokenizer() {
     assert(tokens3[7].type == TokenType::STRING_LITERAL);
     assert(tokens3[7].value == "Alice");
     
+    // Test new operators
+    Tokenizer tokenizer4("SELECT * FROM users WHERE age >= 30 AND age <= 40");
+    auto tokens4 = tokenizer4.tokenize();
+    
+    // Debug output
+    std::cout << "Tokens for 'SELECT * FROM users WHERE age >= 30 AND age <= 40':" << std::endl;
+    for (size_t i = 0; i < tokens4.size(); i++) {
+        std::cout << "  " << i << ": " << static_cast<int>(tokens4[i].type) << " '" << tokens4[i].value << "'" << std::endl;
+    }
+    
+    assert(tokens4.size() == 13); // SELECT, *, FROM, users, WHERE, age, >=, 30, AND, age, <=, 40, END_OF_INPUT
+    assert(tokens4[6].type == TokenType::GREATER_EQUAL);
+    assert(tokens4[6].value == ">=");
+    assert(tokens4[10].type == TokenType::LESS_EQUAL);
+    assert(tokens4[10].value == "<=");
+    
     std::cout << "✓ Tokenizer tests passed" << std::endl;
 }
 
@@ -121,6 +137,16 @@ void test_parser_advanced() {
     // Test multiple conditions
     auto plan3 = SQLParser::parse("SELECT id, name FROM users WHERE age > 25 AND age < 40", users);
     assert(plan3 != nullptr);
+    
+    // Test new operators
+    auto plan4 = SQLParser::parse("SELECT * FROM users WHERE age >= 30", users);
+    assert(plan4 != nullptr);
+    
+    auto plan5 = SQLParser::parse("SELECT * FROM users WHERE age <= 35", users);
+    assert(plan5 != nullptr);
+    
+    auto plan6 = SQLParser::parse("SELECT * FROM users WHERE name != 'Bob'", users);
+    assert(plan6 != nullptr);
     
     std::cout << "✓ Advanced parser tests passed" << std::endl;
 }

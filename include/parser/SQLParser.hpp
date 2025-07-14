@@ -139,6 +139,12 @@ private:
                 condition.operator_ = "<";
             } else if (tokens[pos].type == TokenType::EQUALS) {
                 condition.operator_ = "=";
+            } else if (tokens[pos].type == TokenType::GREATER_EQUAL) {
+                condition.operator_ = ">=";
+            } else if (tokens[pos].type == TokenType::LESS_EQUAL) {
+                condition.operator_ = "<=";
+            } else if (tokens[pos].type == TokenType::NOT_EQUALS) {
+                condition.operator_ = "!=";
             } else {
                 throw std::runtime_error("Expected comparison operator");
             }
@@ -182,7 +188,7 @@ private:
     }
     
     static std::unique_ptr<QueryPlanNode> buildQueryPlan(const ParsedQuery& parsed, const Table& table) {
-        auto scan = std::make_unique<TableScanNode>(table);
+        auto scan = std::make_unique<TableScanNode>(table, parsed.select.selectAll ? std::vector<std::string>{} : parsed.select.columns);
         
         // If no WHERE conditions, return scan
         if (parsed.whereConditions.empty()) {
@@ -253,6 +259,20 @@ private:
                 }
             } else if (condition.operator_ == "=") {
                 return rowValue == condition.value;
+            } else if (condition.operator_ == ">=") {
+                if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(condition.value)) {
+                    return std::get<int>(rowValue) >= std::get<int>(condition.value);
+                } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(condition.value)) {
+                    return std::get<double>(rowValue) >= std::get<double>(condition.value);
+                }
+            } else if (condition.operator_ == "<=") {
+                if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(condition.value)) {
+                    return std::get<int>(rowValue) <= std::get<int>(condition.value);
+                } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(condition.value)) {
+                    return std::get<double>(rowValue) <= std::get<double>(condition.value);
+                }
+            } else if (condition.operator_ == "!=") {
+                return rowValue != condition.value;
             }
         } catch (const std::bad_variant_access&) {
             return false;

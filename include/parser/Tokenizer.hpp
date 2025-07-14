@@ -19,6 +19,9 @@ enum class TokenType {
     GREATER_THAN,
     LESS_THAN,
     EQUALS,
+    GREATER_EQUAL,
+    LESS_EQUAL,
+    NOT_EQUALS,
     STAR,
     COMMA,
     SEMICOLON,
@@ -67,10 +70,27 @@ public:
                 tokens.push_back(Token(TokenType::LEFT_PAREN, "(", position++));
             } else if (current == ')') {
                 tokens.push_back(Token(TokenType::RIGHT_PAREN, ")", position++));
+            } else if (current == '!') {
+                if (position + 1 < input.length() && input[position + 1] == '=') {
+                    tokens.push_back(Token(TokenType::NOT_EQUALS, "!=", position));
+                    position += 2;
+                } else {
+                    tokens.push_back(Token(TokenType::ERROR, "!", position++));
+                }
             } else if (current == '>') {
-                tokens.push_back(Token(TokenType::GREATER_THAN, ">", position++));
+                if (position + 1 < input.length() && input[position + 1] == '=') {
+                    tokens.push_back(Token(TokenType::GREATER_EQUAL, ">=", position));
+                    position += 2;
+                } else {
+                    tokens.push_back(Token(TokenType::GREATER_THAN, ">", position++));
+                }
             } else if (current == '<') {
-                tokens.push_back(Token(TokenType::LESS_THAN, "<", position++));
+                if (position + 1 < input.length() && input[position + 1] == '=') {
+                    tokens.push_back(Token(TokenType::LESS_EQUAL, "<=", position));
+                    position += 2;
+                } else {
+                    tokens.push_back(Token(TokenType::LESS_THAN, "<", position++));
+                }
             } else if (current == '=') {
                 tokens.push_back(Token(TokenType::EQUALS, "=", position++));
             } else {
