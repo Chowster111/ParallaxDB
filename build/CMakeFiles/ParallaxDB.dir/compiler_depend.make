@@ -796,10 +796,12 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp \
@@ -813,6 +815,8 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 
@@ -1137,6 +1141,8 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iterator:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/type_list.h:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_stdio.h:
 
@@ -2259,8 +2265,6 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/ranges_construct_at.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/find_if_not.h:
-
-/Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/special_functions.h:
 

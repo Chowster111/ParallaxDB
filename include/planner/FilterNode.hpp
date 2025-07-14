@@ -2,29 +2,29 @@
 
 #include "QueryPlan.hpp"
 #include "../storage/Table.hpp"
+#include "../parser/Expression.hpp"
 #include <functional>
 #include <iostream>
 #include <variant>
+#include <memory>
 
 namespace parallaxdb {
 
 class FilterNode : public QueryPlanNode {
 public:
     FilterNode(std::unique_ptr<QueryPlanNode> child,
-               std::function<bool(const Row&)> predicate)
-        : child(std::move(child)), predicate(predicate) {}
+               std::unique_ptr<Expression> expr,
+               const Table& table)
+        : child(std::move(child)), expr(std::move(expr)), table(table) {}
 
     void execute() override {
-        // The child node should produce rows (we’ll do this naively for now)
         TableScanNode* scan = dynamic_cast<TableScanNode*>(child.get());
         if (scan == nullptr) {
             std::cerr << "FilterNode currently supports only TableScanNode child" << std::endl;
             return;
         }
-
-        const Table& table = scan->getTable();
         for (const auto& row : table.getRows()) {
-            if (predicate(row)) {
+            if (expr->evaluate(row, table)) {
                 for (const auto& val : row.values) {
                     std::cout << val << " ";
                 }
@@ -35,7 +35,8 @@ public:
 
 private:
     std::unique_ptr<QueryPlanNode> child;
-    std::function<bool(const Row&)> predicate;
+    std::unique_ptr<Expression> expr;
+    const Table& table;
 };
 
 } // namespace parallaxdb

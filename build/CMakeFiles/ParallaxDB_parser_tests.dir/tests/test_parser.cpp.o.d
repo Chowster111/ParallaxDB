@@ -801,7 +801,9 @@ CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.o: \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Tokenizer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/SQLParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Expression.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../storage/Table.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../storage/Table.hpp
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../parser/Expression.hpp

@@ -798,7 +798,9 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/../storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/../planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/../planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/../planner/../storage/Table.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/include/parser/../storage/Table.hpp
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/../planner/../parser/Expression.hpp

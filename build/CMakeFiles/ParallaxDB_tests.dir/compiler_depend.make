@@ -800,10 +800,12 @@ CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.o: /Users/arijitchow/Docume
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp \
@@ -821,6 +823,8 @@ CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.o: /Users/arijitchow/Docume
 /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 
