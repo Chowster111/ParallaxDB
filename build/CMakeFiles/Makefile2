@@ -65,11 +65,13 @@ CMAKE_BINARY_DIR = /Users/arijitchow/Documents/ParallaxDB/build
 # The main recursive "all" target.
 all: CMakeFiles/ParallaxDB.dir/all
 all: CMakeFiles/ParallaxDB_tests.dir/all
+all: CMakeFiles/ParallaxDB_parser_tests.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/ParallaxDB.dir/codegen
 codegen: CMakeFiles/ParallaxDB_tests.dir/codegen
+codegen: CMakeFiles/ParallaxDB_parser_tests.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -86,6 +88,7 @@ clean: CMakeFiles/AArch64TargetParserTableGen.dir/clean
 clean: CMakeFiles/RISCVTargetParserTableGen.dir/clean
 clean: CMakeFiles/ParallaxDB.dir/clean
 clean: CMakeFiles/ParallaxDB_tests.dir/clean
+clean: CMakeFiles/ParallaxDB_parser_tests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -351,7 +354,7 @@ CMakeFiles/ParallaxDB.dir/clean:
 CMakeFiles/ParallaxDB_tests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=3,4 "Built target ParallaxDB_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=5,6 "Built target ParallaxDB_tests"
 .PHONY : CMakeFiles/ParallaxDB_tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -368,13 +371,45 @@ ParallaxDB_tests: CMakeFiles/ParallaxDB_tests.dir/rule
 # codegen rule for target.
 CMakeFiles/ParallaxDB_tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=3,4 "Finished codegen for target ParallaxDB_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=5,6 "Finished codegen for target ParallaxDB_tests"
 .PHONY : CMakeFiles/ParallaxDB_tests.dir/codegen
 
 # clean rule for target.
 CMakeFiles/ParallaxDB_tests.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/clean
 .PHONY : CMakeFiles/ParallaxDB_tests.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ParallaxDB_parser_tests.dir
+
+# All Build rule for target.
+CMakeFiles/ParallaxDB_parser_tests.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=3,4 "Built target ParallaxDB_parser_tests"
+.PHONY : CMakeFiles/ParallaxDB_parser_tests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ParallaxDB_parser_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ParallaxDB_parser_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles 0
+.PHONY : CMakeFiles/ParallaxDB_parser_tests.dir/rule
+
+# Convenience name for target.
+ParallaxDB_parser_tests: CMakeFiles/ParallaxDB_parser_tests.dir/rule
+.PHONY : ParallaxDB_parser_tests
+
+# codegen rule for target.
+CMakeFiles/ParallaxDB_parser_tests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=3,4 "Finished codegen for target ParallaxDB_parser_tests"
+.PHONY : CMakeFiles/ParallaxDB_parser_tests.dir/codegen
+
+# clean rule for target.
+CMakeFiles/ParallaxDB_parser_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/clean
+.PHONY : CMakeFiles/ParallaxDB_parser_tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

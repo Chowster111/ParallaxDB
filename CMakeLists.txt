@@ -29,5 +29,8 @@ target_link_libraries(ParallaxDB ${LLVM_LIBS})
 # Add tests
 enable_testing()
 add_executable(ParallaxDB_tests tests/test_basic.cpp)
+add_executable(ParallaxDB_parser_tests tests/test_parser.cpp)
 target_link_libraries(ParallaxDB_tests ${LLVM_LIBS})
+target_link_libraries(ParallaxDB_parser_tests ${LLVM_LIBS})
 add_test(NAME BasicTests COMMAND ParallaxDB_tests)
+add_test(NAME ParserTests COMMAND ParallaxDB_parser_tests)

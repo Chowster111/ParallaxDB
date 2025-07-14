@@ -244,6 +244,19 @@ ParallaxDB_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/build
 .PHONY : ParallaxDB_tests/fast
 
+#=============================================================================
+# Target rules for targets named ParallaxDB_parser_tests
+
+# Build rule for target.
+ParallaxDB_parser_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ParallaxDB_parser_tests
+.PHONY : ParallaxDB_parser_tests
+
+# fast build rule for target.
+ParallaxDB_parser_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/build
+.PHONY : ParallaxDB_parser_tests/fast
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -292,6 +305,30 @@ tests/test_basic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_tests.dir/build.make CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.s
 .PHONY : tests/test_basic.cpp.s
 
+tests/test_parser.o: tests/test_parser.cpp.o
+.PHONY : tests/test_parser.o
+
+# target to build an object file
+tests/test_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.o
+.PHONY : tests/test_parser.cpp.o
+
+tests/test_parser.i: tests/test_parser.cpp.i
+.PHONY : tests/test_parser.i
+
+# target to preprocess a source file
+tests/test_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.i
+.PHONY : tests/test_parser.cpp.i
+
+tests/test_parser.s: tests/test_parser.cpp.s
+.PHONY : tests/test_parser.s
+
+# target to generate assembly for a file
+tests/test_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.s
+.PHONY : tests/test_parser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -309,6 +346,7 @@ help:
 	@echo "... omp_gen"
 	@echo "... vt_gen"
 	@echo "... ParallaxDB"
+	@echo "... ParallaxDB_parser_tests"
 	@echo "... ParallaxDB_tests"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
@@ -316,6 +354,9 @@ help:
 	@echo "... tests/test_basic.o"
 	@echo "... tests/test_basic.i"
 	@echo "... tests/test_basic.s"
+	@echo "... tests/test_parser.o"
+	@echo "... tests/test_parser.i"
+	@echo "... tests/test_parser.s"
 .PHONY : help
 
 

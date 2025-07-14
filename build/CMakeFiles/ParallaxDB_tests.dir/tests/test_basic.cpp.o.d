@@ -799,6 +799,10 @@ CMakeFiles/ParallaxDB_tests.dir/tests/test_basic.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Parser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/SQLParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Tokenizer.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/QueryPlan.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../storage/Table.hpp
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../storage/Table.hpp
