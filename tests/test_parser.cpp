@@ -148,6 +148,14 @@ void test_parser_advanced() {
     auto plan6 = SQLParser::parse("SELECT * FROM users WHERE name != 'Bob'", users);
     assert(plan6 != nullptr);
     
+    // Test parentheses and precedence
+    auto plan7 = SQLParser::parse("SELECT * FROM users WHERE (age > 30 AND name = 'Charlie') OR (age < 30)", users);
+    assert(plan7 != nullptr);
+    auto plan8 = SQLParser::parse("SELECT * FROM users WHERE age > 30 AND (name = 'Charlie' OR name = 'Diana')", users);
+    assert(plan8 != nullptr);
+    auto plan9 = SQLParser::parse("SELECT * FROM users WHERE (age > 30 OR age < 30) AND name = 'Alice'", users);
+    assert(plan9 != nullptr);
+    
     std::cout << "✓ Advanced parser tests passed" << std::endl;
 }
 
@@ -162,17 +170,17 @@ void test_error_handling() {
     
     users.insertRow({{1, "Alice", 30}});
     
-    // Test malformed query (should not crash)
+    // Test malformed query (should return nullptr)
     auto plan1 = SQLParser::parse("INVALID QUERY", users);
-    assert(plan1 != nullptr); // Should return fallback plan
+    assert(plan1 == nullptr); // Should return nullptr on parse error
     
     // Test missing FROM
     auto plan2 = SQLParser::parse("SELECT * users", users);
-    assert(plan2 != nullptr);
+    assert(plan2 == nullptr);
     
     // Test missing WHERE value
     auto plan3 = SQLParser::parse("SELECT * FROM users WHERE age >", users);
-    assert(plan3 != nullptr);
+    assert(plan3 == nullptr);
     
     std::cout << "✓ Error handling tests passed" << std::endl;
 }

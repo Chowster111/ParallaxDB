@@ -29,7 +29,9 @@ int main() {
         if (query == "exit") break;
 
         auto plan = Parser::parse(query, users);
-        plan->execute();
+        if (plan) {
+            plan->execute();
+        }
     }
 
     return 0;

@@ -1,12 +1,14 @@
 #pragma once
 
 #include "Tokenizer.hpp"
+#include "Expression.hpp"
 #include "../planner/FilterNode.hpp"
 #include "../storage/Table.hpp"
 #include <memory>
 #include <vector>
 #include <functional>
 #include <stdexcept>
+#include <variant>
 
 namespace parallaxdb {
 
@@ -29,7 +31,8 @@ struct WhereClause {
 struct ParsedQuery {
     SelectClause select;
     std::string tableName;
-    std::vector<WhereClause> whereConditions;
+    std::vector<WhereClause> whereConditions; // old
+    std::unique_ptr<Expression> whereExpr; // new
 };
 
 class SQLParser {
@@ -39,9 +42,24 @@ public:
             ParsedQuery parsed = parseQuery(query);
             return buildQueryPlan(parsed, table);
         } catch (const std::exception& e) {
-            std::cerr << "Parse error: " << e.what() << std::endl;
-            // Return a simple scan as fallback
-            return std::make_unique<TableScanNode>(table);
+            // Enhanced error reporting
+            const char* what = e.what();
+            std::string msg = what ? what : "Parse error";
+            std::cerr << "Parse error: " << msg << std::endl;
+            // If the exception message contains a token position, print the query with a caret
+            size_t pos = msg.find("[pos=");
+            if (pos != std::string::npos) {
+                size_t start = pos + 5;
+                size_t end = msg.find("]", start);
+                if (end != std::string::npos) {
+                    int tokenPos = std::stoi(msg.substr(start, end - start));
+                    std::cerr << query << std::endl;
+                    for (int i = 0; i < tokenPos; ++i) std::cerr << ' ';
+                    std::cerr << "^" << std::endl;
+                }
+            }
+            // Do not execute fallback plan
+            return nullptr;
         }
     }
 
@@ -55,7 +73,7 @@ private:
         
         // Parse SELECT clause
         if (pos >= tokens.size() || tokens[pos].type != TokenType::SELECT) {
-            throw std::runtime_error("Expected SELECT");
+            throw std::runtime_error("Expected SELECT [pos=" + std::to_string(tokens[pos].position) + "]");
         }
         pos++;
         
@@ -64,12 +82,12 @@ private:
         
         // Parse FROM clause
         if (pos >= tokens.size() || tokens[pos].type != TokenType::FROM) {
-            throw std::runtime_error("Expected FROM");
+            throw std::runtime_error("Expected FROM [pos=" + std::to_string(tokens[pos].position) + "]");
         }
         pos++;
         
         if (pos >= tokens.size() || tokens[pos].type != TokenType::IDENTIFIER) {
-            throw std::runtime_error("Expected table name");
+            throw std::runtime_error("Expected table name [pos=" + std::to_string(tokens[pos].position) + "]");
         }
         result.tableName = tokens[pos].value;
         pos++;
@@ -77,7 +95,7 @@ private:
         // Parse WHERE clause (optional)
         if (pos < tokens.size() && tokens[pos].type == TokenType::WHERE) {
             pos++;
-            result.whereConditions = parseWhereClause(tokens, pos);
+            result.whereExpr = parseWhereExpression(tokens, pos);
         }
         
         return result;
@@ -87,7 +105,7 @@ private:
         SelectClause select;
         
         if (pos >= tokens.size()) {
-            throw std::runtime_error("Expected column list or *");
+            throw std::runtime_error("Expected column list or * [pos=" + std::to_string(pos) + "]");
         }
         
         if (tokens[pos].type == TokenType::STAR) {
@@ -98,7 +116,7 @@ private:
             
             while (pos < tokens.size()) {
                 if (tokens[pos].type != TokenType::IDENTIFIER) {
-                    throw std::runtime_error("Expected column name");
+                    throw std::runtime_error("Expected column name [pos=" + std::to_string(tokens[pos].position) + "]");
                 }
                 
                 select.columns.push_back(tokens[pos].value);
@@ -123,14 +141,14 @@ private:
             
             // Parse column name
             if (tokens[pos].type != TokenType::IDENTIFIER) {
-                throw std::runtime_error("Expected column name in WHERE clause");
+                throw std::runtime_error("Expected column name in WHERE clause [pos=" + std::to_string(tokens[pos].position) + "]");
             }
             condition.column = tokens[pos].value;
             pos++;
             
             // Parse operator
             if (pos >= tokens.size()) {
-                throw std::runtime_error("Expected operator in WHERE clause");
+                throw std::runtime_error("Expected operator in WHERE clause [pos=" + std::to_string(pos) + "]");
             }
             
             if (tokens[pos].type == TokenType::GREATER_THAN) {
@@ -146,13 +164,13 @@ private:
             } else if (tokens[pos].type == TokenType::NOT_EQUALS) {
                 condition.operator_ = "!=";
             } else {
-                throw std::runtime_error("Expected comparison operator");
+                throw std::runtime_error("Expected comparison operator [pos=" + std::to_string(tokens[pos].position) + "]");
             }
             pos++;
             
             // Parse value
             if (pos >= tokens.size()) {
-                throw std::runtime_error("Expected value in WHERE clause");
+                throw std::runtime_error("Expected value in WHERE clause [pos=" + std::to_string(pos) + "]");
             }
             
             if (tokens[pos].type == TokenType::NUMBER) {
@@ -162,13 +180,13 @@ private:
                     try {
                         condition.value = std::stod(tokens[pos].value);
                     } catch (...) {
-                        throw std::runtime_error("Invalid number: " + tokens[pos].value);
+                        throw std::runtime_error("Invalid number: " + tokens[pos].value + " [pos=" + std::to_string(tokens[pos].position) + "]");
                     }
                 }
             } else if (tokens[pos].type == TokenType::STRING_LITERAL) {
                 condition.value = tokens[pos].value;
             } else {
-                throw std::runtime_error("Expected value");
+                throw std::runtime_error("Expected value [pos=" + std::to_string(tokens[pos].position) + "]");
             }
             pos++;
             
@@ -187,18 +205,12 @@ private:
         return conditions;
     }
     
-    static std::unique_ptr<QueryPlanNode> buildQueryPlan(const ParsedQuery& parsed, const Table& table) {
+    static std::unique_ptr<QueryPlanNode> buildQueryPlan(ParsedQuery& parsed, const Table& table) {
         auto scan = std::make_unique<TableScanNode>(table, parsed.select.selectAll ? std::vector<std::string>{} : parsed.select.columns);
-        
-        // If no WHERE conditions, return scan
-        if (parsed.whereConditions.empty()) {
+        if (!parsed.whereExpr) {
             return scan;
         }
-        
-        // Build filter predicate from WHERE conditions
-        auto predicate = buildFilterPredicate(parsed.whereConditions, table);
-        
-        return std::make_unique<FilterNode>(std::move(scan), predicate);
+        return std::make_unique<FilterNode>(std::move(scan), std::move(parsed.whereExpr), table);
     }
     
     static std::function<bool(const Row&)> buildFilterPredicate(
@@ -279,6 +291,79 @@ private:
         }
         
         return false;
+    }
+
+    // Recursive descent parser for WHERE expressions
+    static std::unique_ptr<Expression> parseWhereExpression(const std::vector<Token>& tokens, size_t& pos) {
+        return parseOr(tokens, pos);
+    }
+    static std::unique_ptr<Expression> parseOr(const std::vector<Token>& tokens, size_t& pos) {
+        auto left = parseAnd(tokens, pos);
+        while (pos < tokens.size() && tokens[pos].type == TokenType::OR) {
+            pos++;
+            auto right = parseAnd(tokens, pos);
+            left = std::make_unique<LogicalExpr>("OR", std::move(left), std::move(right));
+        }
+        return left;
+    }
+    static std::unique_ptr<Expression> parseAnd(const std::vector<Token>& tokens, size_t& pos) {
+        auto left = parsePrimary(tokens, pos);
+        while (pos < tokens.size() && tokens[pos].type == TokenType::AND) {
+            pos++;
+            auto right = parsePrimary(tokens, pos);
+            left = std::make_unique<LogicalExpr>("AND", std::move(left), std::move(right));
+        }
+        return left;
+    }
+    static std::unique_ptr<Expression> parsePrimary(const std::vector<Token>& tokens, size_t& pos) {
+        if (tokens[pos].type == TokenType::LEFT_PAREN) {
+            pos++;
+            auto expr = parseWhereExpression(tokens, pos);
+            if (tokens[pos].type != TokenType::RIGHT_PAREN) {
+                throw std::runtime_error("Expected ')' [pos=" + std::to_string(tokens[pos].position) + "]");
+            }
+            pos++;
+            return std::make_unique<ParenExpr>(std::move(expr));
+        }
+        // Parse comparison: col op value
+        if (tokens[pos].type != TokenType::IDENTIFIER) {
+            throw std::runtime_error("Expected column name in WHERE clause [pos=" + std::to_string(tokens[pos].position) + "]");
+        }
+        std::string col = tokens[pos].value;
+        pos++;
+        if (pos >= tokens.size()) {
+            throw std::runtime_error("Expected operator in WHERE clause [pos=" + std::to_string(pos) + "]");
+        }
+        std::string op;
+        if (tokens[pos].type == TokenType::GREATER_THAN) op = ">";
+        else if (tokens[pos].type == TokenType::LESS_THAN) op = "<";
+        else if (tokens[pos].type == TokenType::EQUALS) op = "=";
+        else if (tokens[pos].type == TokenType::GREATER_EQUAL) op = ">=";
+        else if (tokens[pos].type == TokenType::LESS_EQUAL) op = "<=";
+        else if (tokens[pos].type == TokenType::NOT_EQUALS) op = "!=";
+        else throw std::runtime_error("Expected comparison operator [pos=" + std::to_string(tokens[pos].position) + "]");
+        pos++;
+        if (pos >= tokens.size()) {
+            throw std::runtime_error("Expected value in WHERE clause [pos=" + std::to_string(pos) + "]");
+        }
+        Value val;
+        if (tokens[pos].type == TokenType::NUMBER) {
+            try {
+                val = std::stoi(tokens[pos].value);
+            } catch (...) {
+                try {
+                    val = std::stod(tokens[pos].value);
+                } catch (...) {
+                    throw std::runtime_error("Invalid number: " + tokens[pos].value + " [pos=" + std::to_string(tokens[pos].position) + "]");
+                }
+            }
+        } else if (tokens[pos].type == TokenType::STRING_LITERAL) {
+            val = tokens[pos].value;
+        } else {
+            throw std::runtime_error("Expected value [pos=" + std::to_string(tokens[pos].position) + "]");
+        }
+        pos++;
+        return std::make_unique<ComparisonExpr>(col, op, val);
     }
 };
 
