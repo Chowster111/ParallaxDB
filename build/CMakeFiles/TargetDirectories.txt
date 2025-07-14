@@ -6,5 +6,7 @@
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/AArch64TargetParserTableGen.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/RISCVTargetParserTableGen.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB.dir
+/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB_tests.dir
+/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/test.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/edit_cache.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/rebuild_cache.dir

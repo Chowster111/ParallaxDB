@@ -25,3 +25,9 @@ add_executable(ParallaxDB ${SOURCES})
 llvm_map_components_to_libnames(LLVM_LIBS core orcjit native)
 
 target_link_libraries(ParallaxDB ${LLVM_LIBS})
+
+# Add tests
+enable_testing()
+add_executable(ParallaxDB_tests tests/test_basic.cpp)
+target_link_libraries(ParallaxDB_tests ${LLVM_LIBS})
+add_test(NAME BasicTests COMMAND ParallaxDB_tests)
