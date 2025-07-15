@@ -798,25 +798,40 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionEvaluator.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/Token.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp
+  /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp
 
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/Token.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp:
 
+/Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionParser.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionEvaluator.hpp:
+
 /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 

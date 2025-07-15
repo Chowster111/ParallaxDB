@@ -4,6 +4,7 @@
 #include "../include/storage/Table.hpp"
 #include "../include/parser/Tokenizer.hpp"
 #include "../include/parser/SQLParser.hpp"
+#include "../include/types/Common.hpp"
 
 using namespace parallaxdb;
 

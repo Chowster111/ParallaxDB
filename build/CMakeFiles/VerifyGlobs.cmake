@@ -5,6 +5,7 @@
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/arijitchow/Documents/ParallaxDB/src/*.cpp")
 set(OLD_GLOB
   "/Users/arijitchow/Documents/ParallaxDB/src/main.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

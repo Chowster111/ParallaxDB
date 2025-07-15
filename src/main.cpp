@@ -2,6 +2,7 @@
 #include <string>
 #include "storage/Table.hpp"
 #include "parser/Parser.hpp"
+#include "../include/types/Common.hpp"
 
 using namespace parallaxdb;
 
