@@ -4,19 +4,9 @@
 #include <vector>
 #include <unordered_map>
 #include <variant>
+#include "../types/Common.hpp"
 
 namespace parallaxdb {
-
-using Value = std::variant<int, double, std::string>;
-
-struct Row {
-    std::vector<Value> values;
-};
-
-struct Column {
-    std::string name;
-    enum Type { INT, DOUBLE, STRING } type;
-};
 
 class Table {
 public:

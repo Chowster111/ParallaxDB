@@ -9,6 +9,8 @@
 #include <functional>
 #include <stdexcept>
 #include <variant>
+#include "ExpressionParser.hpp"
+#include "Token.hpp"
 
 namespace parallaxdb {
 
@@ -95,7 +97,7 @@ private:
         // Parse WHERE clause (optional)
         if (pos < tokens.size() && tokens[pos].type == TokenType::WHERE) {
             pos++;
-            result.whereExpr = parseWhereExpression(tokens, pos);
+            result.whereExpr = ExpressionParser::parseWhereExpression(tokens, pos);
         }
         
         return result;
@@ -291,79 +293,6 @@ private:
         }
         
         return false;
-    }
-
-    // Recursive descent parser for WHERE expressions
-    static std::unique_ptr<Expression> parseWhereExpression(const std::vector<Token>& tokens, size_t& pos) {
-        return parseOr(tokens, pos);
-    }
-    static std::unique_ptr<Expression> parseOr(const std::vector<Token>& tokens, size_t& pos) {
-        auto left = parseAnd(tokens, pos);
-        while (pos < tokens.size() && tokens[pos].type == TokenType::OR) {
-            pos++;
-            auto right = parseAnd(tokens, pos);
-            left = std::make_unique<LogicalExpr>("OR", std::move(left), std::move(right));
-        }
-        return left;
-    }
-    static std::unique_ptr<Expression> parseAnd(const std::vector<Token>& tokens, size_t& pos) {
-        auto left = parsePrimary(tokens, pos);
-        while (pos < tokens.size() && tokens[pos].type == TokenType::AND) {
-            pos++;
-            auto right = parsePrimary(tokens, pos);
-            left = std::make_unique<LogicalExpr>("AND", std::move(left), std::move(right));
-        }
-        return left;
-    }
-    static std::unique_ptr<Expression> parsePrimary(const std::vector<Token>& tokens, size_t& pos) {
-        if (tokens[pos].type == TokenType::LEFT_PAREN) {
-            pos++;
-            auto expr = parseWhereExpression(tokens, pos);
-            if (tokens[pos].type != TokenType::RIGHT_PAREN) {
-                throw std::runtime_error("Expected ')' [pos=" + std::to_string(tokens[pos].position) + "]");
-            }
-            pos++;
-            return std::make_unique<ParenExpr>(std::move(expr));
-        }
-        // Parse comparison: col op value
-        if (tokens[pos].type != TokenType::IDENTIFIER) {
-            throw std::runtime_error("Expected column name in WHERE clause [pos=" + std::to_string(tokens[pos].position) + "]");
-        }
-        std::string col = tokens[pos].value;
-        pos++;
-        if (pos >= tokens.size()) {
-            throw std::runtime_error("Expected operator in WHERE clause [pos=" + std::to_string(pos) + "]");
-        }
-        std::string op;
-        if (tokens[pos].type == TokenType::GREATER_THAN) op = ">";
-        else if (tokens[pos].type == TokenType::LESS_THAN) op = "<";
-        else if (tokens[pos].type == TokenType::EQUALS) op = "=";
-        else if (tokens[pos].type == TokenType::GREATER_EQUAL) op = ">=";
-        else if (tokens[pos].type == TokenType::LESS_EQUAL) op = "<=";
-        else if (tokens[pos].type == TokenType::NOT_EQUALS) op = "!=";
-        else throw std::runtime_error("Expected comparison operator [pos=" + std::to_string(tokens[pos].position) + "]");
-        pos++;
-        if (pos >= tokens.size()) {
-            throw std::runtime_error("Expected value in WHERE clause [pos=" + std::to_string(pos) + "]");
-        }
-        Value val;
-        if (tokens[pos].type == TokenType::NUMBER) {
-            try {
-                val = std::stoi(tokens[pos].value);
-            } catch (...) {
-                try {
-                    val = std::stod(tokens[pos].value);
-                } catch (...) {
-                    throw std::runtime_error("Invalid number: " + tokens[pos].value + " [pos=" + std::to_string(tokens[pos].position) + "]");
-                }
-            }
-        } else if (tokens[pos].type == TokenType::STRING_LITERAL) {
-            val = tokens[pos].value;
-        } else {
-            throw std::runtime_error("Expected value [pos=" + std::to_string(tokens[pos].position) + "]");
-        }
-        pos++;
-        return std::make_unique<ComparisonExpr>(col, op, val);
     }
 };
 

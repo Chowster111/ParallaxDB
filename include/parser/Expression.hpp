@@ -1,13 +1,11 @@
 #pragma once
 #include <string>
 #include <memory>
-#include <variant>
+#include "../types/Common.hpp"
 #include "../storage/Table.hpp"
+#include "ExpressionEvaluator.hpp"
 
 namespace parallaxdb {
-
-using Value = std::variant<int, double, std::string>;
-struct Row;
 
 struct Expression {
     virtual ~Expression() = default;
@@ -39,63 +37,5 @@ struct ParenExpr : public Expression {
         return expr->evaluate(row, table);
     }
 };
-
-inline bool ComparisonExpr::evaluate(const Row& row, const Table& table) const {
-    int columnIndex = -1;
-    const auto& columns = table.getColumns();
-    for (size_t i = 0; i < columns.size(); i++) {
-        if (columns[i].name == column) {
-            columnIndex = i;
-            break;
-        }
-    }
-    if (columnIndex == -1 || columnIndex >= static_cast<int>(row.values.size())) {
-        return false;
-    }
-    const Value& rowValue = row.values[columnIndex];
-    try {
-        if (op == ">") {
-            if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(value)) {
-                return std::get<int>(rowValue) > std::get<int>(value);
-            } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(value)) {
-                return std::get<double>(rowValue) > std::get<double>(value);
-            }
-        } else if (op == "<") {
-            if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(value)) {
-                return std::get<int>(rowValue) < std::get<int>(value);
-            } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(value)) {
-                return std::get<double>(rowValue) < std::get<double>(value);
-            }
-        } else if (op == "=") {
-            return rowValue == value;
-        } else if (op == ">=") {
-            if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(value)) {
-                return std::get<int>(rowValue) >= std::get<int>(value);
-            } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(value)) {
-                return std::get<double>(rowValue) >= std::get<double>(value);
-            }
-        } else if (op == "<=") {
-            if (std::holds_alternative<int>(rowValue) && std::holds_alternative<int>(value)) {
-                return std::get<int>(rowValue) <= std::get<int>(value);
-            } else if (std::holds_alternative<double>(rowValue) && std::holds_alternative<double>(value)) {
-                return std::get<double>(rowValue) <= std::get<double>(value);
-            }
-        } else if (op == "!=") {
-            return rowValue != value;
-        }
-    } catch (const std::bad_variant_access&) {
-        return false;
-    }
-    return false;
-}
-
-inline bool LogicalExpr::evaluate(const Row& row, const Table& table) const {
-    if (op == "AND") {
-        return left->evaluate(row, table) && right->evaluate(row, table);
-    } else if (op == "OR") {
-        return left->evaluate(row, table) || right->evaluate(row, table);
-    }
-    return false;
-}
 
 } // namespace parallaxdb 

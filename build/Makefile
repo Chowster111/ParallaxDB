@@ -281,6 +281,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser/ExpressionEvaluator.o: src/parser/ExpressionEvaluator.cpp.o
+.PHONY : src/parser/ExpressionEvaluator.o
+
+# target to build an object file
+src/parser/ExpressionEvaluator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o
+.PHONY : src/parser/ExpressionEvaluator.cpp.o
+
+src/parser/ExpressionEvaluator.i: src/parser/ExpressionEvaluator.cpp.i
+.PHONY : src/parser/ExpressionEvaluator.i
+
+# target to preprocess a source file
+src/parser/ExpressionEvaluator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.i
+.PHONY : src/parser/ExpressionEvaluator.cpp.i
+
+src/parser/ExpressionEvaluator.s: src/parser/ExpressionEvaluator.cpp.s
+.PHONY : src/parser/ExpressionEvaluator.s
+
+# target to generate assembly for a file
+src/parser/ExpressionEvaluator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.s
+.PHONY : src/parser/ExpressionEvaluator.cpp.s
+
 tests/test_basic.o: tests/test_basic.cpp.o
 .PHONY : tests/test_basic.o
 
@@ -351,6 +375,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/ExpressionEvaluator.o"
+	@echo "... src/parser/ExpressionEvaluator.i"
+	@echo "... src/parser/ExpressionEvaluator.s"
 	@echo "... tests/test_basic.o"
 	@echo "... tests/test_basic.i"
 	@echo "... tests/test_basic.s"
