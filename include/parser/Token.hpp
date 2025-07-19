@@ -23,6 +23,25 @@ enum class TokenType {
     SEMICOLON,
     LEFT_PAREN,
     RIGHT_PAREN,
+    // DDL tokens
+    CREATE,
+    DROP,
+    TABLE,
+    // DML tokens
+    INSERT,
+    INTO,
+    VALUES,
+    // Data type tokens
+    INT,
+    DOUBLE,
+    STRING,
+    BOOLEAN,
+    // Constraint tokens
+    NOT,
+    NULL_TOKEN,
+    UNIQUE,
+    PRIMARY,
+    KEY,
     END_OF_INPUT,
     ERROR
 };

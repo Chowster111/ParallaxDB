@@ -95,14 +95,8 @@ ParallaxDB_parser_tests_EXTERNAL_OBJECTS =
 
 ParallaxDB_parser_tests: CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.o
 ParallaxDB_parser_tests: CMakeFiles/ParallaxDB_parser_tests.dir/build.make
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMCore.a
+ParallaxDB_parser_tests: libParallaxDB_lib.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMOrcJIT.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64CodeGen.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64AsmParser.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Desc.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Disassembler.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Info.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Utils.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMPasses.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMCoroutines.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMHipStdPar.a
@@ -120,6 +114,7 @@ ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMOrcShared.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMWindowsDriver.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMOption.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMRuntimeDyld.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64CodeGen.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAsmPrinter.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMCFGuard.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMGlobalISel.a
@@ -148,17 +143,19 @@ ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMTextAPI.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoCodeView.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoMSF.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoBTF.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64AsmParser.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMMCParser.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Disassembler.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Desc.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMCodeGenTypes.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMMCDisassembler.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Info.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMMC.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Utils.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMCore.a
+ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMBinaryFormat.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMRemarks.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMBitstreamReader.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMMCDisassembler.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMMC.a
-ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMBinaryFormat.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMTargetParser.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMSupport.a
 ParallaxDB_parser_tests: /opt/homebrew/opt/llvm/lib/libLLVMDemangle.a

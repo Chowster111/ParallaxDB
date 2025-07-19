@@ -5,6 +5,7 @@
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ARMTargetParserTableGen.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/AArch64TargetParserTableGen.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB_lib.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB_tests.dir
 /Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles/ParallaxDB_parser_tests.dir

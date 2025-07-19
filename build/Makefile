@@ -219,6 +219,19 @@ RISCVTargetParserTableGen/fast:
 .PHONY : RISCVTargetParserTableGen/fast
 
 #=============================================================================
+# Target rules for targets named ParallaxDB_lib
+
+# Build rule for target.
+ParallaxDB_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ParallaxDB_lib
+.PHONY : ParallaxDB_lib
+
+# fast build rule for target.
+ParallaxDB_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/build
+.PHONY : ParallaxDB_lib/fast
+
+#=============================================================================
 # Target rules for targets named ParallaxDB
 
 # Build rule for target.
@@ -257,11 +270,36 @@ ParallaxDB_parser_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_parser_tests.dir/build.make CMakeFiles/ParallaxDB_parser_tests.dir/build
 .PHONY : ParallaxDB_parser_tests/fast
 
+src/executor/QueryExecutor.o: src/executor/QueryExecutor.cpp.o
+.PHONY : src/executor/QueryExecutor.o
+
+# target to build an object file
+src/executor/QueryExecutor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/executor/QueryExecutor.cpp.o
+.PHONY : src/executor/QueryExecutor.cpp.o
+
+src/executor/QueryExecutor.i: src/executor/QueryExecutor.cpp.i
+.PHONY : src/executor/QueryExecutor.i
+
+# target to preprocess a source file
+src/executor/QueryExecutor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/executor/QueryExecutor.cpp.i
+.PHONY : src/executor/QueryExecutor.cpp.i
+
+src/executor/QueryExecutor.s: src/executor/QueryExecutor.cpp.s
+.PHONY : src/executor/QueryExecutor.s
+
+# target to generate assembly for a file
+src/executor/QueryExecutor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/executor/QueryExecutor.cpp.s
+.PHONY : src/executor/QueryExecutor.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
@@ -270,6 +308,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
@@ -278,15 +317,64 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/parser/DDLParser.o: src/parser/DDLParser.cpp.o
+.PHONY : src/parser/DDLParser.o
+
+# target to build an object file
+src/parser/DDLParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DDLParser.cpp.o
+.PHONY : src/parser/DDLParser.cpp.o
+
+src/parser/DDLParser.i: src/parser/DDLParser.cpp.i
+.PHONY : src/parser/DDLParser.i
+
+# target to preprocess a source file
+src/parser/DDLParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DDLParser.cpp.i
+.PHONY : src/parser/DDLParser.cpp.i
+
+src/parser/DDLParser.s: src/parser/DDLParser.cpp.s
+.PHONY : src/parser/DDLParser.s
+
+# target to generate assembly for a file
+src/parser/DDLParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DDLParser.cpp.s
+.PHONY : src/parser/DDLParser.cpp.s
+
+src/parser/DMLParser.o: src/parser/DMLParser.cpp.o
+.PHONY : src/parser/DMLParser.o
+
+# target to build an object file
+src/parser/DMLParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DMLParser.cpp.o
+.PHONY : src/parser/DMLParser.cpp.o
+
+src/parser/DMLParser.i: src/parser/DMLParser.cpp.i
+.PHONY : src/parser/DMLParser.i
+
+# target to preprocess a source file
+src/parser/DMLParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DMLParser.cpp.i
+.PHONY : src/parser/DMLParser.cpp.i
+
+src/parser/DMLParser.s: src/parser/DMLParser.cpp.s
+.PHONY : src/parser/DMLParser.s
+
+# target to generate assembly for a file
+src/parser/DMLParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/DMLParser.cpp.s
+.PHONY : src/parser/DMLParser.cpp.s
 
 src/parser/ExpressionEvaluator.o: src/parser/ExpressionEvaluator.cpp.o
 .PHONY : src/parser/ExpressionEvaluator.o
 
 # target to build an object file
 src/parser/ExpressionEvaluator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionEvaluator.cpp.o
 .PHONY : src/parser/ExpressionEvaluator.cpp.o
 
 src/parser/ExpressionEvaluator.i: src/parser/ExpressionEvaluator.cpp.i
@@ -294,7 +382,7 @@ src/parser/ExpressionEvaluator.i: src/parser/ExpressionEvaluator.cpp.i
 
 # target to preprocess a source file
 src/parser/ExpressionEvaluator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionEvaluator.cpp.i
 .PHONY : src/parser/ExpressionEvaluator.cpp.i
 
 src/parser/ExpressionEvaluator.s: src/parser/ExpressionEvaluator.cpp.s
@@ -302,8 +390,152 @@ src/parser/ExpressionEvaluator.s: src/parser/ExpressionEvaluator.cpp.s
 
 # target to generate assembly for a file
 src/parser/ExpressionEvaluator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB.dir/build.make CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionEvaluator.cpp.s
 .PHONY : src/parser/ExpressionEvaluator.cpp.s
+
+src/parser/ExpressionParser.o: src/parser/ExpressionParser.cpp.o
+.PHONY : src/parser/ExpressionParser.o
+
+# target to build an object file
+src/parser/ExpressionParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionParser.cpp.o
+.PHONY : src/parser/ExpressionParser.cpp.o
+
+src/parser/ExpressionParser.i: src/parser/ExpressionParser.cpp.i
+.PHONY : src/parser/ExpressionParser.i
+
+# target to preprocess a source file
+src/parser/ExpressionParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionParser.cpp.i
+.PHONY : src/parser/ExpressionParser.cpp.i
+
+src/parser/ExpressionParser.s: src/parser/ExpressionParser.cpp.s
+.PHONY : src/parser/ExpressionParser.s
+
+# target to generate assembly for a file
+src/parser/ExpressionParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/ExpressionParser.cpp.s
+.PHONY : src/parser/ExpressionParser.cpp.s
+
+src/parser/SQLProcessor.o: src/parser/SQLProcessor.cpp.o
+.PHONY : src/parser/SQLProcessor.o
+
+# target to build an object file
+src/parser/SQLProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/SQLProcessor.cpp.o
+.PHONY : src/parser/SQLProcessor.cpp.o
+
+src/parser/SQLProcessor.i: src/parser/SQLProcessor.cpp.i
+.PHONY : src/parser/SQLProcessor.i
+
+# target to preprocess a source file
+src/parser/SQLProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/SQLProcessor.cpp.i
+.PHONY : src/parser/SQLProcessor.cpp.i
+
+src/parser/SQLProcessor.s: src/parser/SQLProcessor.cpp.s
+.PHONY : src/parser/SQLProcessor.s
+
+# target to generate assembly for a file
+src/parser/SQLProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/parser/SQLProcessor.cpp.s
+.PHONY : src/parser/SQLProcessor.cpp.s
+
+src/planner/FilterNode.o: src/planner/FilterNode.cpp.o
+.PHONY : src/planner/FilterNode.o
+
+# target to build an object file
+src/planner/FilterNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/FilterNode.cpp.o
+.PHONY : src/planner/FilterNode.cpp.o
+
+src/planner/FilterNode.i: src/planner/FilterNode.cpp.i
+.PHONY : src/planner/FilterNode.i
+
+# target to preprocess a source file
+src/planner/FilterNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/FilterNode.cpp.i
+.PHONY : src/planner/FilterNode.cpp.i
+
+src/planner/FilterNode.s: src/planner/FilterNode.cpp.s
+.PHONY : src/planner/FilterNode.s
+
+# target to generate assembly for a file
+src/planner/FilterNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/FilterNode.cpp.s
+.PHONY : src/planner/FilterNode.cpp.s
+
+src/planner/QueryPlan.o: src/planner/QueryPlan.cpp.o
+.PHONY : src/planner/QueryPlan.o
+
+# target to build an object file
+src/planner/QueryPlan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/QueryPlan.cpp.o
+.PHONY : src/planner/QueryPlan.cpp.o
+
+src/planner/QueryPlan.i: src/planner/QueryPlan.cpp.i
+.PHONY : src/planner/QueryPlan.i
+
+# target to preprocess a source file
+src/planner/QueryPlan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/QueryPlan.cpp.i
+.PHONY : src/planner/QueryPlan.cpp.i
+
+src/planner/QueryPlan.s: src/planner/QueryPlan.cpp.s
+.PHONY : src/planner/QueryPlan.s
+
+# target to generate assembly for a file
+src/planner/QueryPlan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/planner/QueryPlan.cpp.s
+.PHONY : src/planner/QueryPlan.cpp.s
+
+src/storage/Database.o: src/storage/Database.cpp.o
+.PHONY : src/storage/Database.o
+
+# target to build an object file
+src/storage/Database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/storage/Database.cpp.o
+.PHONY : src/storage/Database.cpp.o
+
+src/storage/Database.i: src/storage/Database.cpp.i
+.PHONY : src/storage/Database.i
+
+# target to preprocess a source file
+src/storage/Database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/storage/Database.cpp.i
+.PHONY : src/storage/Database.cpp.i
+
+src/storage/Database.s: src/storage/Database.cpp.s
+.PHONY : src/storage/Database.s
+
+# target to generate assembly for a file
+src/storage/Database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/storage/Database.cpp.s
+.PHONY : src/storage/Database.cpp.s
+
+src/types/DataValidator.o: src/types/DataValidator.cpp.o
+.PHONY : src/types/DataValidator.o
+
+# target to build an object file
+src/types/DataValidator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/types/DataValidator.cpp.o
+.PHONY : src/types/DataValidator.cpp.o
+
+src/types/DataValidator.i: src/types/DataValidator.cpp.i
+.PHONY : src/types/DataValidator.i
+
+# target to preprocess a source file
+src/types/DataValidator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/types/DataValidator.cpp.i
+.PHONY : src/types/DataValidator.cpp.i
+
+src/types/DataValidator.s: src/types/DataValidator.cpp.s
+.PHONY : src/types/DataValidator.s
+
+# target to generate assembly for a file
+src/types/DataValidator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ParallaxDB_lib.dir/build.make CMakeFiles/ParallaxDB_lib.dir/src/types/DataValidator.cpp.s
+.PHONY : src/types/DataValidator.cpp.s
 
 tests/test_basic.o: tests/test_basic.cpp.o
 .PHONY : tests/test_basic.o
@@ -370,14 +602,42 @@ help:
 	@echo "... omp_gen"
 	@echo "... vt_gen"
 	@echo "... ParallaxDB"
+	@echo "... ParallaxDB_lib"
 	@echo "... ParallaxDB_parser_tests"
 	@echo "... ParallaxDB_tests"
+	@echo "... src/executor/QueryExecutor.o"
+	@echo "... src/executor/QueryExecutor.i"
+	@echo "... src/executor/QueryExecutor.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/DDLParser.o"
+	@echo "... src/parser/DDLParser.i"
+	@echo "... src/parser/DDLParser.s"
+	@echo "... src/parser/DMLParser.o"
+	@echo "... src/parser/DMLParser.i"
+	@echo "... src/parser/DMLParser.s"
 	@echo "... src/parser/ExpressionEvaluator.o"
 	@echo "... src/parser/ExpressionEvaluator.i"
 	@echo "... src/parser/ExpressionEvaluator.s"
+	@echo "... src/parser/ExpressionParser.o"
+	@echo "... src/parser/ExpressionParser.i"
+	@echo "... src/parser/ExpressionParser.s"
+	@echo "... src/parser/SQLProcessor.o"
+	@echo "... src/parser/SQLProcessor.i"
+	@echo "... src/parser/SQLProcessor.s"
+	@echo "... src/planner/FilterNode.o"
+	@echo "... src/planner/FilterNode.i"
+	@echo "... src/planner/FilterNode.s"
+	@echo "... src/planner/QueryPlan.o"
+	@echo "... src/planner/QueryPlan.i"
+	@echo "... src/planner/QueryPlan.s"
+	@echo "... src/storage/Database.o"
+	@echo "... src/storage/Database.i"
+	@echo "... src/storage/Database.s"
+	@echo "... src/types/DataValidator.o"
+	@echo "... src/types/DataValidator.i"
+	@echo "... src/types/DataValidator.s"
 	@echo "... tests/test_basic.o"
 	@echo "... tests/test_basic.i"
 	@echo "... tests/test_basic.s"

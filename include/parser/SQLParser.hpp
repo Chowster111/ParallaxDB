@@ -11,6 +11,7 @@
 #include <variant>
 #include "ExpressionParser.hpp"
 #include "Token.hpp"
+#include <iostream>
 
 namespace parallaxdb {
 

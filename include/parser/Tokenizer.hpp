@@ -104,6 +104,36 @@ private:
             return Token(TokenType::AND, identifier, start);
         } else if (upperIdentifier == "OR") {
             return Token(TokenType::OR, identifier, start);
+        } else if (upperIdentifier == "CREATE") {
+            return Token(TokenType::CREATE, identifier, start);
+        } else if (upperIdentifier == "DROP") {
+            return Token(TokenType::DROP, identifier, start);
+        } else if (upperIdentifier == "TABLE") {
+            return Token(TokenType::TABLE, identifier, start);
+        } else if (upperIdentifier == "INSERT") {
+            return Token(TokenType::INSERT, identifier, start);
+        } else if (upperIdentifier == "INTO") {
+            return Token(TokenType::INTO, identifier, start);
+        } else if (upperIdentifier == "VALUES") {
+            return Token(TokenType::VALUES, identifier, start);
+        } else if (upperIdentifier == "INT" || upperIdentifier == "INTEGER") {
+            return Token(TokenType::INT, identifier, start);
+        } else if (upperIdentifier == "DOUBLE" || upperIdentifier == "FLOAT" || upperIdentifier == "REAL") {
+            return Token(TokenType::DOUBLE, identifier, start);
+        } else if (upperIdentifier == "STRING" || upperIdentifier == "VARCHAR" || upperIdentifier == "TEXT") {
+            return Token(TokenType::STRING, identifier, start);
+        } else if (upperIdentifier == "BOOLEAN" || upperIdentifier == "BOOL") {
+            return Token(TokenType::BOOLEAN, identifier, start);
+        } else if (upperIdentifier == "NOT") {
+            return Token(TokenType::NOT, identifier, start);
+        } else if (upperIdentifier == "NULL") {
+            return Token(TokenType::NULL_TOKEN, identifier, start);
+        } else if (upperIdentifier == "UNIQUE") {
+            return Token(TokenType::UNIQUE, identifier, start);
+        } else if (upperIdentifier == "PRIMARY") {
+            return Token(TokenType::PRIMARY, identifier, start);
+        } else if (upperIdentifier == "KEY") {
+            return Token(TokenType::KEY, identifier, start);
         } else {
             return Token(TokenType::IDENTIFIER, identifier, start);
         }
