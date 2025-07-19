@@ -798,12 +798,19 @@ CMakeFiles/ParallaxDB_parser_tests.dir/tests/test_parser.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/storage/../types/Common.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Tokenizer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Token.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/SQLParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/Expression.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../types/Common.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../storage/Table.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/ExpressionEvaluator.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/QueryPlan.hpp \
   /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../storage/Table.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../parser/Expression.hpp
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../types/Common.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/../planner/../parser/Expression.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/parser/ExpressionParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/tests/../include/types/Common.hpp

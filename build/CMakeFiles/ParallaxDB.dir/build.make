@@ -86,39 +86,17 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParallaxDB.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arijitchow/Documents/ParallaxDB/src/main.cpp -o CMakeFiles/ParallaxDB.dir/src/main.cpp.s
 
-CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o: CMakeFiles/ParallaxDB.dir/flags.make
-CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o: /Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp
-CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o: CMakeFiles/ParallaxDB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o -MF CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o.d -o CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o -c /Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp
-
-CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp > CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.i
-
-CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp -o CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.s
-
 # Object files for target ParallaxDB
 ParallaxDB_OBJECTS = \
-"CMakeFiles/ParallaxDB.dir/src/main.cpp.o" \
-"CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o"
+"CMakeFiles/ParallaxDB.dir/src/main.cpp.o"
 
 # External object files for target ParallaxDB
 ParallaxDB_EXTERNAL_OBJECTS =
 
 ParallaxDB: CMakeFiles/ParallaxDB.dir/src/main.cpp.o
-ParallaxDB: CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o
 ParallaxDB: CMakeFiles/ParallaxDB.dir/build.make
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMCore.a
+ParallaxDB: libParallaxDB_lib.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMOrcJIT.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64CodeGen.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64AsmParser.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Desc.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Disassembler.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Info.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Utils.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMPasses.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMCoroutines.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMHipStdPar.a
@@ -136,6 +114,7 @@ ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMOrcShared.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMWindowsDriver.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMOption.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMRuntimeDyld.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64CodeGen.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAsmPrinter.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMCFGuard.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMGlobalISel.a
@@ -164,17 +143,19 @@ ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMTextAPI.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoCodeView.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoMSF.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMDebugInfoBTF.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64AsmParser.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMMCParser.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Disassembler.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Desc.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMCodeGenTypes.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMMCDisassembler.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Info.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMMC.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMAArch64Utils.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMCore.a
+ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMBinaryFormat.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMRemarks.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMBitstreamReader.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMMCDisassembler.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMMC.a
-ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMBinaryFormat.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMTargetParser.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMSupport.a
 ParallaxDB: /opt/homebrew/opt/llvm/lib/libLLVMDemangle.a
@@ -182,7 +163,7 @@ ParallaxDB: /opt/homebrew/lib/libz3.dylib
 ParallaxDB: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libz.tbd
 ParallaxDB: /opt/homebrew/lib/libzstd.dylib
 ParallaxDB: CMakeFiles/ParallaxDB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ParallaxDB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/arijitchow/Documents/ParallaxDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ParallaxDB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ParallaxDB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

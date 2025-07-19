@@ -4,8 +4,17 @@
 # SOURCES at CMakeLists.txt:21 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/arijitchow/Documents/ParallaxDB/src/*.cpp")
 set(OLD_GLOB
+  "/Users/arijitchow/Documents/ParallaxDB/src/executor/QueryExecutor.cpp"
   "/Users/arijitchow/Documents/ParallaxDB/src/main.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/parser/DDLParser.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/parser/DMLParser.cpp"
   "/Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionEvaluator.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/parser/ExpressionParser.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/parser/SQLProcessor.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/planner/FilterNode.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/planner/QueryPlan.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/storage/Database.cpp"
+  "/Users/arijitchow/Documents/ParallaxDB/src/types/DataValidator.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

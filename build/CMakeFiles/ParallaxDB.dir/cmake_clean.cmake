@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ParallaxDB.dir/src/main.cpp.o"
   "CMakeFiles/ParallaxDB.dir/src/main.cpp.o.d"
-  "CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o"
-  "CMakeFiles/ParallaxDB.dir/src/parser/ExpressionEvaluator.cpp.o.d"
   "ParallaxDB"
   "ParallaxDB.pdb"
 )

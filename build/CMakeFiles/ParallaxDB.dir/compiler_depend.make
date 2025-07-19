@@ -801,16 +801,20 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
   /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/FilterNode.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/storage/Database.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/DDLParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/DMLParser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Expression.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionEvaluator.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionParser.hpp \
-  /Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/parser/SQLProcessor.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Token.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/parser/Tokenizer.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp \
+  /Users/arijitchow/Documents/ParallaxDB/include/storage/Database.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/storage/Table.hpp \
   /Users/arijitchow/Documents/ParallaxDB/include/types/Common.hpp
 
@@ -819,13 +823,15 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/Token.hpp:
 
-/Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp:
+/Users/arijitchow/Documents/ParallaxDB/include/parser/SQLProcessor.hpp:
 
-/Users/arijitchow/Documents/ParallaxDB/include/parser/Parser.hpp:
+/Users/arijitchow/Documents/ParallaxDB/include/parser/SQLParser.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionParser.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/parser/ExpressionEvaluator.hpp:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/DDLParser.hpp:
 
 /Users/arijitchow/Documents/ParallaxDB/include/planner/QueryPlan.hpp:
 
@@ -1098,6 +1104,8 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cctype:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/bit:
+
+/Users/arijitchow/Documents/ParallaxDB/include/storage/Database.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h:
 
@@ -1952,6 +1960,8 @@ CMakeFiles/ParallaxDB.dir/src/main.cpp.o: /Users/arijitchow/Documents/ParallaxDB
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstddef:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/operations.h:
+
+/Users/arijitchow/Documents/ParallaxDB/include/parser/DMLParser.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
 
